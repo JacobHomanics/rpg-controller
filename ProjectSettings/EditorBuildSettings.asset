@@ -6,8 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Scenes/Template.unity
     guid: 4447d59e8359d47b78e99952bb52774e
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 05e0c56c975f9449ba544a22e9e62977, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
