@@ -485,7 +485,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scriptable Objects/Camera/Default Components
+    - Assets/Scriptable Objects/Camera
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0ad60000
     m_LastClickedID: 54794
-    m_ExpandedIDs: 000000004eb9000050b9000052b9000054b9000056b9000058b900005ab900005cb900005eb9000060b9000062b90000
+    m_ExpandedIDs: 000000002ebb000030bb000032bb000034bb000036bb000038bb00003abb00003cbb00003ebb000040bb000042bb0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -533,7 +533,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004eb9000050b9000052b9000054b9000056b9000058b900005ab900005cb900005eb9000060b9000062b90000
+    m_ExpandedIDs: 000000002ebb000030bb000032bb000034bb000036bb000038bb00003abb00003cbb00003ebb000040bb000042bb0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.12762295, y: 1.5096594, z: -0.011536777}
+    m_Target: {x: 0.50302184, y: 0.113052316, z: -0.5336747}
     speed: 2
     m_Value: {x: -0.12762295, y: 1.5096594, z: -0.011536777}
   m_RenderMode: 0
@@ -1347,11 +1347,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.096376255, y: -0.7368409, z: 0.107519716, w: 0.66046876}
+    m_Target: {x: 0.016253946, y: -0.897084, z: 0.033115484, w: 0.4403259}
     speed: 2
     m_Value: {x: -0.09637626, y: 0.7368409, z: -0.107519716, w: -0.66046876}
   m_Size:
-    m_Target: 0.71115506
+    m_Target: 0.9813502
     speed: 2
     m_Value: 0.71115506
   m_Ortho:
