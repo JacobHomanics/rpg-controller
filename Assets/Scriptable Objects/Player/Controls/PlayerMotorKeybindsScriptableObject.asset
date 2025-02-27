@@ -49,5 +49,5 @@ MonoBehaviour:
   jumpCombos:
   - keyCodes:
     - keyCode: 32
-      resolutionType: 2
+      resolutionType: 0
     mouseButtons: []
