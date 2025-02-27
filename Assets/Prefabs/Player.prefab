@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b966bb944a3d34700a0ec3770ae99f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tex: {fileID: 2800000, guid: d7e20e6f1452943a58833a68a9419401, type: 3}
+  tex: {fileID: 2800000, guid: a115839c5e1ae44c19df6a7b8aafc628, type: 3}
 --- !u!1 &5512375016897706667
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +287,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5452384544314365427}
   controller: {fileID: 644687346938442545}
+  horizontal: X
+  vertical: Z
   damping: 0.05
+  isMoving: IsMoving
+  movingThreshold: 0.05
 --- !u!1 &7086276468412096778
 GameObject:
   m_ObjectHideFlags: 0

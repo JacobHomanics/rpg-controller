@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.pixelcraft_studios.aavegotchi_unity_sdk": "https://github.com/aavegotchi/unity-sdk.git",
     "com.unity.ai.navigation": "2.0.5",
     "com.unity.cinemachine": "3.1.3",
     "com.unity.collab-proxy": "2.6.0",
