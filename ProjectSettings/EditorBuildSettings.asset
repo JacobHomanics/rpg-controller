@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RPG Controller/Scenes/Demo.unity
+    path: Packages/com.jacobhomanics.rpgcontroller/Scenes/Demo.unity
     guid: 4447d59e8359d47b78e99952bb52774e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
