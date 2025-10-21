@@ -1,3 +1,14 @@
 {
-	"name": "com.jacobhomanics.textureTilingController"
+    "name": "com.jacobhomanics.textureTilingController",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
