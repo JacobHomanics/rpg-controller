@@ -330,7 +330,6 @@ GameObject:
   - component: {fileID: 801942017}
   - component: {fileID: 801942016}
   - component: {fileID: 801942015}
-  - component: {fileID: 801942018}
   - component: {fileID: 801942019}
   m_Layer: 0
   m_Name: Plane
@@ -362,7 +361,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b60394239f6e74792b1b454259f9a300, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -407,20 +406,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &801942018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801942013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478ae4e44e6dc4276b1fd6eb5ff2c383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texture: {fileID: 2800000, guid: 89f915a59dc5a4bdcb947c4fff323738, type: 3}
-  textureToMeshZ: 2
 --- !u!65 &801942019
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -554,7 +539,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4b0ca0cde6d574d6a81900791729458e, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
