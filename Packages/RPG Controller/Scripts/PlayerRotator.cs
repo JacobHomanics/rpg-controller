@@ -1,59 +1,62 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerRotator : MonoBehaviour
+namespace JacobHomanics.Essentials.RPGController
 {
-    public PlayerRotatorScriptableObject motorValues;
-    public PlayerRotatorKeybindsScriptableObject keybinds;
-
-    public bool forceBidirectionalInputBlocking = false;
-
-    public Events events = new();
-
-    public bool IsRotating
+    public class PlayerRotator : MonoBehaviour
     {
-        get
+        public PlayerRotatorScriptableObject motorValues;
+        public PlayerRotatorKeybindsScriptableObject keybinds;
+
+        public bool forceBidirectionalInputBlocking = false;
+
+        public Events events = new();
+
+        public bool IsRotating
         {
-            return RightMotionTrueCount > 0 || LeftMotionTrueCount > 0;
+            get
+            {
+                return RightMotionTrueCount > 0 || LeftMotionTrueCount > 0;
+            }
         }
-    }
-    public int RightMotionTrueCount { get { return Combo.GetResolveCount(keybinds.rightTurnCombos); } }
+        public int RightMotionTrueCount { get { return Combo.GetResolveCount(keybinds.rightTurnCombos); } }
 
-    public int LeftMotionTrueCount { get { return Combo.GetResolveCount(keybinds.leftTurnCombos); } }
+        public int LeftMotionTrueCount { get { return Combo.GetResolveCount(keybinds.leftTurnCombos); } }
 
-    private void HandleRotation()
-    {
-        if (forceBidirectionalInputBlocking)
+        private void HandleRotation()
         {
-            if (LeftMotionTrueCount > 0 && RightMotionTrueCount > 0)
-                return;
+            if (forceBidirectionalInputBlocking)
+            {
+                if (LeftMotionTrueCount > 0 && RightMotionTrueCount > 0)
+                    return;
+            }
+
+            if (LeftMotionTrueCount > 0)
+            {
+                transform.Rotate(0, -motorValues.leftTurnSpeed * Time.deltaTime, 0);
+                events.TurnedLeft?.Invoke();
+                events.Turned?.Invoke();
+            }
+
+            if (RightMotionTrueCount > 0)
+            {
+                transform.Rotate(0, motorValues.rightTurnSpeed * Time.deltaTime, 0);
+                events.TurnedRight?.Invoke();
+                events.Turned?.Invoke();
+            }
         }
 
-        if (LeftMotionTrueCount > 0)
+        private void Update()
         {
-            transform.Rotate(0, -motorValues.leftTurnSpeed * Time.deltaTime, 0);
-            events.TurnedLeft?.Invoke();
-            events.Turned?.Invoke();
+            HandleRotation();
         }
 
-        if (RightMotionTrueCount > 0)
+        [System.Serializable]
+        public class Events
         {
-            transform.Rotate(0, motorValues.rightTurnSpeed * Time.deltaTime, 0);
-            events.TurnedRight?.Invoke();
-            events.Turned?.Invoke();
+            public UnityEvent Turned = new();
+            public UnityEvent TurnedLeft = new();
+            public UnityEvent TurnedRight = new();
         }
-    }
-
-    private void Update()
-    {
-        HandleRotation();
-    }
-
-    [System.Serializable]
-    public class Events
-    {
-        public UnityEvent Turned = new();
-        public UnityEvent TurnedLeft = new();
-        public UnityEvent TurnedRight = new();
     }
 }

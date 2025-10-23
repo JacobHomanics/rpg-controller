@@ -1,61 +1,64 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+namespace JacobHomanics.Essentials.RPGController
 {
-    public Animator anim;
-    public PlayerMotor controller;
-
-    public float damping = 0.05f;
-
-    public string horizontal = "X";
-    public string vertical = "Z";
-
-    public string jump = "Jump";
-    public bool triggerBasedJump;
-
-    public bool isUsingIsMoving;
-    public string isMoving = "IsMoving";
-
-    public void Jump()
+    public class PlayerAnimator : MonoBehaviour
     {
-        if (triggerBasedJump)
-            anim.SetTrigger(jump);
-        else
-            anim.Play(jump, 1, 0f);
-    }
+        public Animator anim;
+        public PlayerMotor controller;
 
+        public float damping = 0.05f;
 
-    void Update()
-    {
-        var localized = controller.NormalizedInputMoveDirection;
+        public string horizontal = "X";
+        public string vertical = "Z";
 
-        if (isUsingIsMoving)
-            anim.SetBool(isMoving, localized.x != 0 || localized.z != 0);
+        public string jump = "Jump";
+        public bool triggerBasedJump;
 
-        if (localized.x > 0)
+        public bool isUsingIsMoving;
+        public string isMoving = "IsMoving";
+
+        public void Jump()
         {
-            anim.SetFloat(horizontal, 1f, damping, Time.deltaTime);
-        }
-        else if (localized.x < 0)
-        {
-            anim.SetFloat(horizontal, -1f, damping, Time.deltaTime);
-        }
-        else
-        {
-            anim.SetFloat(horizontal, 0f, damping, Time.deltaTime);
+            if (triggerBasedJump)
+                anim.SetTrigger(jump);
+            else
+                anim.Play(jump, 1, 0f);
         }
 
-        if (localized.z > 0)
+
+        void Update()
         {
-            anim.SetFloat(vertical, 1f, damping, Time.deltaTime);
-        }
-        else if (localized.z < 0)
-        {
-            anim.SetFloat(vertical, -1f, damping, Time.deltaTime);
-        }
-        else
-        {
-            anim.SetFloat(vertical, 0f, damping, Time.deltaTime);
+            var localized = controller.NormalizedInputMoveDirection;
+
+            if (isUsingIsMoving)
+                anim.SetBool(isMoving, localized.x != 0 || localized.z != 0);
+
+            if (localized.x > 0)
+            {
+                anim.SetFloat(horizontal, 1f, damping, Time.deltaTime);
+            }
+            else if (localized.x < 0)
+            {
+                anim.SetFloat(horizontal, -1f, damping, Time.deltaTime);
+            }
+            else
+            {
+                anim.SetFloat(horizontal, 0f, damping, Time.deltaTime);
+            }
+
+            if (localized.z > 0)
+            {
+                anim.SetFloat(vertical, 1f, damping, Time.deltaTime);
+            }
+            else if (localized.z < 0)
+            {
+                anim.SetFloat(vertical, -1f, damping, Time.deltaTime);
+            }
+            else
+            {
+                anim.SetFloat(vertical, 0f, damping, Time.deltaTime);
+            }
         }
     }
 }
