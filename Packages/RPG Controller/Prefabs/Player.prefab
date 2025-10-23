@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tex: {fileID: 2800000, guid: d7e20e6f1452943a58833a68a9419401, type: 3}
+  useDefaultCursor: 1
 --- !u!1 &5512375016897706667
 GameObject:
   m_ObjectHideFlags: 0

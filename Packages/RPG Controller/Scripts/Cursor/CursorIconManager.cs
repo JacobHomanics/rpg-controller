@@ -3,9 +3,14 @@ using UnityEngine;
 public class CursorIconManager : MonoBehaviour
 {
     public Texture2D tex;
+    public bool useDefaultCursor;
 
-    void Start()
-    {
-        Cursor.SetCursor(tex, Vector2.zero, CursorMode.Auto);
+    void Update() {
+        if (useDefaultCursor){
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        else {
+            Cursor.SetCursor(tex, Vector2.zero, CursorMode.Auto);
+        }
     }
 }
