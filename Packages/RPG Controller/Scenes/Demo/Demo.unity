@@ -592,10 +592,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5484123119455566095, guid: 9591cb1fdeed74cde8f58f3ed3dcfdfe, type: 3}
-      propertyPath: useDefaultCursor
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5558533512872659934, guid: 9591cb1fdeed74cde8f58f3ed3dcfdfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
