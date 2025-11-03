@@ -1,6 +1,6 @@
 {
   "name": "com.jacobhomanics.rpgcontroller",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "displayName": "RPG Controller",
   "description": "Out of the box RPG Controller with basic movement and animations.",
   "unity": "6000.0",
