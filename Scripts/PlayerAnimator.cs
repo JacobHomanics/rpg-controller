@@ -31,6 +31,8 @@ namespace JacobHomanics.Essentials.RPGController
         {
             var localized = controller.NormalizedInputMoveDirection;
 
+            anim.SetBool("IsGrounded", controller.characterController.isGrounded);
+
             if (isUsingIsMoving)
                 anim.SetBool(isMoving, localized.x != 0 || localized.z != 0);
 
