@@ -68,21 +68,35 @@ namespace JacobHomanics.Essentials.RPGController
             characterController.Move(FinalMovement * Time.deltaTime);
         }
 
+        public MotorValues modifiableMotorValues = new();
+
+        public MotorValues FinalizedMotorValues
+        {
+            get
+            {
+                return new MotorValues()
+                {
+                    jumpPower = modifiableMotorValues.jumpPower + motorValues.motorValues.jumpPower
+                };
+            }
+        }
+
+
         private void Jump()
         {
-            jumpVelocity.y = motorValues.jumpPower;
+            jumpVelocity.y = FinalizedMotorValues.jumpPower;
 
             if (IsLeftActivated)
-                jumpVelocity.x = -motorValues.leftMoveSpeed;
+                jumpVelocity.x = -motorValues.motorValues.leftMoveSpeed;
 
             if (IsRightActivated)
-                jumpVelocity.x = motorValues.rightMoveSpeed;
+                jumpVelocity.x = motorValues.motorValues.rightMoveSpeed;
 
             if (IsForwardActivated)
-                jumpVelocity.z = motorValues.forwardMoveSpeed;
+                jumpVelocity.z = motorValues.motorValues.forwardMoveSpeed;
 
             if (IsBackwardActivated)
-                jumpVelocity.z = -motorValues.backwardMoveSpeed;
+                jumpVelocity.z = -motorValues.motorValues.backwardMoveSpeed;
 
             events.otherEvents.Jumped?.Invoke();
         }
@@ -128,17 +142,17 @@ namespace JacobHomanics.Essentials.RPGController
             if (jumpVelocity.x == 0 && jumpVelocity.z == 0)
             {
                 if (IsLeftActivated)
-                    jumpVelocity.x = -motorValues.leftMoveSpeed * motorValues.midAirMovementPercentage;
+                    jumpVelocity.x = -motorValues.motorValues.leftMoveSpeed * motorValues.motorValues.midAirMovementPercentage;
 
                 if (IsRightActivated)
-                    jumpVelocity.x = motorValues.rightMoveSpeed * motorValues.midAirMovementPercentage;
+                    jumpVelocity.x = motorValues.motorValues.rightMoveSpeed * motorValues.motorValues.midAirMovementPercentage;
 
                 if (jumpVelocity.x == 0)
                 {
                     if (IsForwardActivated)
-                        jumpVelocity.z = motorValues.forwardMoveSpeed * motorValues.midAirMovementPercentage;
+                        jumpVelocity.z = motorValues.motorValues.forwardMoveSpeed * motorValues.motorValues.midAirMovementPercentage;
                     if (IsBackwardActivated)
-                        jumpVelocity.z = -motorValues.backwardMoveSpeed * motorValues.midAirMovementPercentage;
+                        jumpVelocity.z = -motorValues.motorValues.backwardMoveSpeed * motorValues.motorValues.midAirMovementPercentage;
                 }
             }
         }
@@ -147,7 +161,7 @@ namespace JacobHomanics.Essentials.RPGController
         {
             CheckInputToJumpIfGrounded();
 
-            jumpVelocity.y -= Time.deltaTime * motorValues.jumpPower;
+            jumpVelocity.y -= Time.deltaTime * FinalizedMotorValues.jumpPower;
             if (jumpVelocity.y < 0f)
                 jumpVelocity.y = 0f;
 
@@ -171,9 +185,9 @@ namespace JacobHomanics.Essentials.RPGController
                 Vector3 dir;
 
                 if (IsBackwardActivated)
-                    dir = new Vector3(-motorValues.backwardMoveSpeed, 0, 0);
+                    dir = new Vector3(-motorValues.motorValues.backwardMoveSpeed, 0, 0);
                 else
-                    dir = new Vector3(-motorValues.leftMoveSpeed, 0, 0);
+                    dir = new Vector3(-motorValues.motorValues.leftMoveSpeed, 0, 0);
 
                 moveDirection += dir;
 
@@ -187,9 +201,9 @@ namespace JacobHomanics.Essentials.RPGController
                 Vector3 dir;
 
                 if (IsBackwardActivated)
-                    dir = new Vector3(motorValues.backwardMoveSpeed, 0, 0);
+                    dir = new Vector3(motorValues.motorValues.backwardMoveSpeed, 0, 0);
                 else
-                    dir = new Vector3(motorValues.rightMoveSpeed, 0, 0);
+                    dir = new Vector3(motorValues.motorValues.rightMoveSpeed, 0, 0);
 
                 moveDirection += dir;
 
@@ -200,7 +214,7 @@ namespace JacobHomanics.Essentials.RPGController
 
             if (IsForwardActivated)
             {
-                moveDirection += new Vector3(0, 0, motorValues.forwardMoveSpeed);
+                moveDirection += new Vector3(0, 0, motorValues.motorValues.forwardMoveSpeed);
 
                 NormalizedInputMoveDirection += new Vector3(0, 0, 1f);
 
@@ -211,7 +225,7 @@ namespace JacobHomanics.Essentials.RPGController
             {
                 NormalizedInputMoveDirection += new Vector3(0, 0, -1f);
 
-                moveDirection += new Vector3(0, 0, -motorValues.backwardMoveSpeed);
+                moveDirection += new Vector3(0, 0, -motorValues.motorValues.backwardMoveSpeed);
                 ev = events.movementEvents.MovingBackward;
             }
 
@@ -227,7 +241,7 @@ namespace JacobHomanics.Essentials.RPGController
 
         private void HandleGravity()
         {
-            Move(-motorValues.gravity);
+            Move(-motorValues.motorValues.gravity);
         }
 
 

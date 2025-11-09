@@ -2,6 +2,18 @@ using UnityEngine;
 
 namespace JacobHomanics.Essentials.RPGController
 {
+    [System.Serializable]
+    public struct MotorValues
+    {
+        public float leftMoveSpeed;
+        public float rightMoveSpeed;
+        public float forwardMoveSpeed;
+        public float backwardMoveSpeed;
+        public Vector3 gravity;
+        public float jumpPower;
+        public float midAirMovementPercentage;
+    }
+
     [CreateAssetMenu(fileName = "PlayerMotorScriptableObject", menuName = "Scriptable Objects/PlayerMotorScriptableObject")]
     public class PlayerMotorScriptableObject : ScriptableObject
     {
@@ -14,12 +26,15 @@ namespace JacobHomanics.Essentials.RPGController
         // jumpPower: 15
         // midAirMovementPercentage: 0.55f
 
-        public float leftMoveSpeed = 2.5f;
-        public float rightMoveSpeed = 2.5f;
-        public float forwardMoveSpeed = 2.5f;
-        public float backwardMoveSpeed = 1.65f;
-        public Vector3 gravity = new(0, 9.81f, 0);
-        public float jumpPower = 15f;
-        public float midAirMovementPercentage = .55f;
+        public MotorValues motorValues = new()
+        {
+            leftMoveSpeed = 2.5f,
+            rightMoveSpeed = 2.5f,
+            forwardMoveSpeed = 2.5f,
+            backwardMoveSpeed = 1.65f,
+            gravity = new(0, 9.81f, 0),
+            jumpPower = 15f,
+            midAirMovementPercentage = .55f
+        };
     }
 }
