@@ -18,6 +18,8 @@ namespace JacobHomanics.Essentials.RPGController
         public bool isUsingIsMoving;
         public string isMoving = "IsMoving";
 
+        public bool isUsingIsGrounded;
+
         public void Jump()
         {
             if (triggerBasedJump)
@@ -31,7 +33,8 @@ namespace JacobHomanics.Essentials.RPGController
         {
             var localized = controller.NormalizedInputMoveDirection;
 
-            anim.SetBool("IsGrounded", controller.characterController.isGrounded);
+            if (isUsingIsGrounded)
+                anim.SetBool("IsGrounded", controller.characterController.isGrounded);
 
             if (isUsingIsMoving)
                 anim.SetBool(isMoving, localized.x != 0 || localized.z != 0);
