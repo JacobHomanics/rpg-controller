@@ -55,10 +55,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7825849232597600735}
-  - component: {fileID: 5002423640768953960}
-  - component: {fileID: 2891431669432334754}
-  - component: {fileID: 644687346938442545}
   - component: {fileID: 6526013803409519907}
+  - component: {fileID: 644687346938442545}
   - component: {fileID: 5508319888626574469}
   m_Layer: 0
   m_Name: Motor
@@ -83,59 +81,31 @@ Transform:
   - {fileID: 8484936789642388863}
   m_Father: {fileID: 5558533512872659934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5002423640768953960
-MeshFilter:
+--- !u!143 &6526013803409519907
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5512375016897706667}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2891431669432334754
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5512375016897706667}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.01
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &644687346938442545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,31 +160,14 @@ MonoBehaviour:
       Grounded:
         m_PersistentCalls:
           m_Calls: []
---- !u!143 &6526013803409519907
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5512375016897706667}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.01
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  modifiableMotorValues:
+    leftMoveSpeed: 0
+    rightMoveSpeed: 0
+    forwardMoveSpeed: 0
+    backwardMoveSpeed: 0
+    gravity: {x: 0, y: 0, z: 0}
+    jumpPower: 0
+    midAirMovementPercentage: 0
 --- !u!114 &5508319888626574469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +247,7 @@ MonoBehaviour:
   triggerBasedJump: 0
   isUsingIsMoving: 0
   isMoving: IsMoving
+  isUsingIsGrounded: 0
 --- !u!1 &7086276468412096778
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,13 +369,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'B-foot.R'\n\tTransform 'B-hand.R'\n\tTransform
-    'B-middleFinger02.L'\n\tTransform 'B-head'\n\tTransform 'B-thumb03.L'\n\tTransform
-    'B-middleFinger03.R'\n\tTransform 'B-indexFinger02.L'\n\tTransform 'B-thumb02.L'\n\tTransform
-    'B-shoulder.L'\n\tTransform 'B-indexFinger03.R'\n\tand more ...\n\tFrom animation
-    clip 'Jump01'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -437,6 +385,14 @@ PrefabInstance:
     - target: {fileID: 4608323585000583975, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
       propertyPath: m_Name
       value: Camera Rig - Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797363076779013755, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4797363076779013755, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 5872143668471458793, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -490,6 +446,14 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 7825849232597600735}
+    - target: {fileID: 9170274043393125720, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170274043393125720, guid: ef53efc39bab24048b0e599b3a7aed62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
